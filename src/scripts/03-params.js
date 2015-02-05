@@ -345,7 +345,7 @@ app.factory('NgTableParams', ['$q', '$log', 'ngTableDefaults', function($q, $log
                     if (typeof item === "object") {
                         for (var subkey in item) {
                             if (!angular.isUndefined(item[subkey]) && item[subkey] !== "") {
-                                var pname = name + "[" + encodeURIComponent(subkey) + "]";
+                                var pname = subkey === '$' ? key : name + "[" + encodeURIComponent(subkey) + "]";
                                 if (asString) {
                                     pairs.push(pname + "=" + item[subkey]);
                                 } else {
